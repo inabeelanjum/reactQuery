@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Link } from "react-router-dom";
 export const RqSuperheroes = () => {
   const jeet = () => {
     console.log("success query");
@@ -27,7 +28,11 @@ export const RqSuperheroes = () => {
     <>
       <h2>Super Heroes react query</h2>
       {data?.data.map((hero) => {
-        return <div key={hero.id}>{hero.name}</div>;
+        return (
+          <Link to={`/Hero/${hero.id}`}>
+            <div key={hero.id}>{hero.name}</div>
+          </Link>
+        );
       })}
       <button onClick={refetch}>heroes </button>
     </>

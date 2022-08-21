@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 export const SuperHeroes = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
@@ -20,7 +20,11 @@ export const SuperHeroes = () => {
     <>
       <h2>Super Heroes Page</h2>
       {data.map((hero) => {
-        return <div>{hero.name}</div>;
+        return (
+          <Link to="/Hero">
+            <div>{hero.name}</div>
+          </Link>
+        );
       })}
     </>
   );

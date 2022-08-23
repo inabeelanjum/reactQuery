@@ -47,7 +47,7 @@ export const RqSuperheroes = () => {
       })}
       <button onClick={heroes.refetch}>heroes </button>
 
-      <h2>Super Heroes react query</h2>
+      <h2>friends</h2>
       {friends.data?.data.map((fri) => {
         return (
           <Link to={`/Hero/${fri.id}`}>

@@ -22,20 +22,11 @@ const DPquery = ({ heroIds }) => {
     console.log("obj", a);
     return a;
   };
-  // basicF();
   console.log("heroIds", heroIds);
-  const queriesList = heroIds.map((a) => {
-    return {
-      queryKey: ["post", a],
-      queryFn: () => fetchh(a),
-      staleTime: Infinity,
-    };
-  });
-  // : [];
   const results = useQueries({
     queries: basicF(heroIds),
   });
-  console.log(results);
+
   if (results?.isLoading) {
     return <h1>loading...</h1>;
   }
@@ -45,7 +36,18 @@ const DPquery = ({ heroIds }) => {
   if (results?.isLoadingdata) {
     return <h1>hi nabeel</h1>;
   }
-  return <h1>ok</h1>;
+  console.log(results?.length);
+  if (results.length > 0) {
+    return (
+      <>
+        {results?.map((res, i) => (
+          <>
+            <h1>{res.data.data.name}</h1>
+          </>
+        ))}
+      </>
+    );
+  }
 };
 
 export default DPquery;
